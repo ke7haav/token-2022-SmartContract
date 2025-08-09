@@ -1,0 +1,26 @@
+[package]
+name = "token2022-amm"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "token2022_amm"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+
+
+[dependencies]
+anchor-lang = "0.31.1"
+anchor-spl = { version = "0.31.1", features = ["default", "idl-build"] }
+spl-token-2022 = { version = "4.0.0", features = ["no-entrypoint"] }
+spl-associated-token-account = "3.0.2"
+num-integer = "0.1"
+

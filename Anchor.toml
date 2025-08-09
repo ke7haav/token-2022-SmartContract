@@ -1,0 +1,32 @@
+[features]
+resolution = true
+skip-lint = false
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[programs.localnet]
+token2022_amm = "BXkgQBaKiJS7AunZPYAHGqQ5qKz6gJ7vTjedNYM1FUkU"
+transfer_hook = "E24fiZAUbQNAwEkCcyzm9b4UFi4hhPdqMJgN9ZqntJgq"
+
+[programs.devnet]
+token2022_amm = "BXkgQBaKiJS7AunZPYAHGqQ5qKz6gJ7vTjedNYM1FUkU"
+transfer_hook = "E24fiZAUbQNAwEkCcyzm9b4UFi4hhPdqMJgN9ZqntJgq"
+
+[[test.genesis]]
+address = "BXkgQBaKiJS7AunZPYAHGqQ5qKz6gJ7vTjedNYM1FUkU"
+program = "target/deploy/token2022_amm.so"
+
+[[test.genesis]]
+address = "E24fiZAUbQNAwEkCcyzm9b4UFi4hhPdqMJgN9ZqntJgq"
+program = "target/deploy/transfer_hook.so"
+
+[test]
+startup_wait = 5000
+shutdown_wait = 2000
+upgradeable = false
+
+[[test.validator.account]]
+address = "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+filename = "spl_token_2022-3.5.0.so"
